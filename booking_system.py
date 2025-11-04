@@ -20,7 +20,7 @@ class BookingSystem:
         if room_no in self.rooms:
             raise RoomAlreadyExistsError(f"Room '{room_no}' already exists.")
         self.rooms[room_no] = Room(room_no, building, capacity)
-        print(f"✅ Room '{room_no}' created successfully.")
+        print(f"Room '{room_no}' created successfully.")
 
     def book_room(self, room_no: str, hour: int):
         room = self.get_room(room_no)
@@ -46,8 +46,6 @@ class BookingSystem:
                 continue
             results.append(room)
         return results
-
-    # --- CSV Handling ---
 
     def save_to_csv(self):
         with open(self.csv_filename, mode='w', newline='') as file:
